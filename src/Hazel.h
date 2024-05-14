@@ -1,5 +1,6 @@
 #pragma once
 
-#include "Application.h"
+#include "Hazel/Application.h"
+#include "Hazel/Log.h"
 
-#include "EntryPoint.h"
+#include "Hazel/EntryPoint.h"

@@ -1,6 +1,8 @@
+#include "hzpch.h"
+
 #include "Application.h"
-#include <iostream>
-#include <unistd.h>
+
+#include "Hazel/Events/ApplicationEvent.h"
 namespace Hazel
 {
     Hazel::Application::Application()
@@ -17,6 +19,12 @@ namespace Hazel
         {
             std::cout << "running..." << std::endl;
             sleep(3);
+
+            WindowResizeEvent e(1280, 720);
+            if (e.IsInCategory(EventCategory::Application))
+            {
+                HZ_INFO(e.ToString());
+            }
         }
     }
 
