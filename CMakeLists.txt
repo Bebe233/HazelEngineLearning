@@ -10,7 +10,7 @@ message(STATUS "source path: ${PROJECT_SOURCE_DIR}")
 
 set(SRC_PATH ${PROJECT_SOURCE_DIR}/src )
 
-set(INC_PATH ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/vendor/spdlog/include)
+set(INC_PATH ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/vendor/spdlog/include ${PROJECT_SOURCE_DIR}/vendor/GLFW/include)
 
 set(PCH ${PROJECT_SOURCE_DIR}/src/hzpch.h)
 
