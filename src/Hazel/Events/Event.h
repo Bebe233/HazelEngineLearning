@@ -25,7 +25,7 @@ namespace Hazel
         MouseScrolled
     };
 
-    enum class EventCategory
+    enum class EventCategory : int
     {
         None = 0,
         Application = BIT(1),
