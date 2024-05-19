@@ -2,7 +2,7 @@
 
 #include "Application.h"
 
-#include "GLFW/glfw3.h"
+#include <glad/glad.h>
 
 namespace Hazel
 {
@@ -40,11 +40,11 @@ namespace Hazel
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-        HZ_CORE_TRACE("{0}", e.ToString());
+        // HZ_CORE_TRACE("{0}", e.ToString());
 
-        for (auto it = m_LayerStack.begin(); it != m_LayerStack.end();)
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
         {
-            (*--it)->OnEvent(e);
+            (*(--it))->OnEvent(e);
             if (e.Handled)
                 break;
         }

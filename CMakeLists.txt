@@ -12,7 +12,7 @@ message(STATUS "source path: ${PROJECT_SOURCE_DIR}")
 
 set(SRC_PATH ${PROJECT_SOURCE_DIR}/src )
 
-set(INC_PATH ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/vendor/spdlog/include ${PROJECT_SOURCE_DIR}/vendor/GLFW/include)
+set(INC_PATH ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/vendor/spdlog/include ${PROJECT_SOURCE_DIR}/vendor/GLFW/include ${PROJECT_SOURCE_DIR}/vendor/Glad/include)
 
 set(PCH ${PROJECT_SOURCE_DIR}/src/hzpch.h)
 
@@ -24,7 +24,13 @@ file(GLOB_RECURSE SRC_LIST ${SRC_PATH}/*.cpp)
 
 include_directories(${INC_PATH})
 
+
+find_package(OpenGL REQUIRED)
+link_libraries(glfw OpenGL::GL Glad)
+
 add_library(Hazel STATIC ${SRC_LIST})
 
 target_precompile_headers(Hazel PUBLIC ${PCH})
+
+
 
